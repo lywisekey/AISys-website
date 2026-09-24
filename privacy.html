@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chính sách bảo mật — AISys</title>
+<meta name="description" content="AISys thu thập dữ liệu gì, vì sao, và bạn có quyền gì với dữ liệu đó.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aisys.vn/privacy">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="apple-touch-icon" href="/img/logo-512-a517f9df.png">
+<meta name="theme-color" content="#f7f5f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<style>
+  :root{
+    --ground:#f7f5f2; --card:#fff; --ink:#121110; --body:#3f3c39;
+    --muted:#6b6763; --line:#e8e2db; --accent:#ff3a1a;
+    --ui:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#121110; --card:#1a1918; --ink:#f7f5f2; --body:#c8c3be;
+      --muted:#9a9590; --line:#2a2826;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#121110; --card:#1a1918; --ink:#f7f5f2; --body:#c8c3be;
+    --muted:#9a9590; --line:#2a2826;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--ui);
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding-inline:20px;padding-block:0 80px}
+
+  header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    gap:14px;padding-block:28px;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand span{font-size:17px;font-weight:800;letter-spacing:-.02em}
+  .langs{display:flex;gap:6px}
+  .langs button{appearance:none;background:transparent;border:1px solid var(--line);
+    border-radius:999px;padding:5px 11px;cursor:pointer;font-family:var(--mono);
+    font-size:11px;font-weight:500;color:var(--muted)}
+  .langs button[aria-pressed="true"]{background:rgba(255,58,26,.13);
+    border-color:rgba(255,58,26,.30);color:var(--ink)}
+  .langs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .kicker{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:9px;
+    margin:44px 0 14px}
+  .kicker::before{content:"";width:22px;height:2px;background:var(--accent)}
+  h1{font-size:clamp(28px,5vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.1;
+    margin:0 0 12px;text-wrap:balance}
+  .updated{font-family:var(--mono);font-size:12px;color:var(--muted);margin:0 0 6px}
+  h2{font-size:19px;font-weight:700;letter-spacing:-.015em;margin:40px 0 10px}
+  h3{font-size:15px;font-weight:600;margin:22px 0 6px}
+  p,li{font-size:15px;line-height:1.68;color:var(--body);margin:0 0 12px}
+  ul{margin:0 0 12px;padding-left:20px}
+  li{margin-bottom:6px}
+  strong{color:var(--ink);font-weight:600}
+  a{color:var(--ink)}
+  code{font-family:var(--mono);font-size:13px;background:var(--card);
+    border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+  .note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:10px;padding:16px 18px;margin:22px 0}
+  .note p:last-child{margin-bottom:0}
+  .back{display:inline-block;margin-top:36px;font-family:var(--mono);font-size:12px;
+    color:var(--muted)}
+  section[hidden]{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 32 32" width="28" height="28" fill="none" aria-hidden="true">
+        <defs><mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+          <rect width="32" height="32" fill="#fff"/>
+          <rect x="7.8" y="7.8" width="16.4" height="16.4" stroke="#000" stroke-width="1.3" fill="none"/>
+          <path d="M13 20.2 L16 12.2 L19 20.2" stroke="#000" stroke-width="2.2" stroke-linecap="square" fill="none"/>
+          <path d="M14.1 18 H17.9" stroke="#000" stroke-width="2.2"/>
+        </mask></defs>
+        <g mask="url(#m)" fill="currentColor">
+          <rect x="7.7" y="1.2" width="2" height="3.4"/><rect x="12.3" y="1.2" width="2" height="3.4"/><rect x="16.9" y="1.2" width="2" height="3.4"/><rect x="21.5" y="1.2" width="2" height="3.4"/>
+          <rect x="27.4" y="8.1" width="3.4" height="2"/><rect x="27.4" y="12.7" width="3.4" height="2"/><rect x="27.4" y="17.3" width="3.4" height="2"/><rect x="27.4" y="21.9" width="3.4" height="2"/>
+          <rect x="7.7" y="27.4" width="2" height="3.4"/><rect x="12.3" y="27.4" width="2" height="3.4"/><rect x="16.9" y="27.4" width="2" height="3.4"/><rect x="21.5" y="27.4" width="2" height="3.4"/>
+          <rect x="1.2" y="8.1" width="3.4" height="2"/><rect x="1.2" y="12.7" width="3.4" height="2"/><rect x="1.2" y="17.3" width="3.4" height="2"/><rect x="1.2" y="21.9" width="3.4" height="2"/>
+          <rect x="4" y="4" width="24" height="24" rx="2"/>
+        </g>
+        <rect x="9.9" y="9.9" width="12.2" height="12.2" rx="1" fill="#ff3a1a" mask="url(#m)"/>
+      </svg>
+      <span>AISys</span>
+    </a>
+    <div class="langs" role="group" aria-label="Ngôn ngữ / Language">
+      <button type="button" data-l="vi" aria-pressed="false">VI</button>
+      <button type="button" data-l="en" aria-pressed="false">EN</button>
+      <button type="button" data-l="ja" aria-pressed="false">JA</button>
+    </div>
+  </header>
+
+  <!-- ================= VI ================= -->
+  <section id="vi" lang="vi">
+    <div class="kicker">Chính sách bảo mật</div>
+    <h1>Chúng tôi thu thập gì, và bạn có quyền gì</h1>
+    <p class="updated">Cập nhật: 25/09/2026</p>
+    <p>Trang này mô tả đúng những gì website aisys.vn làm với dữ liệu của bạn — không nhiều hơn, không ít hơn. Nếu có chỗ nào chưa rõ, viết cho chúng tôi theo địa chỉ ở cuối trang.</p>
+
+    <h2>1. Chúng tôi thu thập gì</h2>
+
+    <h3>Biểu mẫu liên hệ</h3>
+    <p>Khi bạn điền biểu mẫu, chúng tôi nhận <strong>tên, tên công ty, email và phần mô tả nhu cầu</strong> của bạn.</p>
+    <div class="note">
+      <p>Một chi tiết kỹ thuật đáng nói: biểu mẫu này <strong>không gửi dữ liệu tới máy chủ nào của chúng tôi</strong>. Nó mở ứng dụng email trên chính máy bạn với nội dung soạn sẵn. Nghĩa là bạn thấy được chính xác thứ mình gửi, và chúng tôi chỉ nhận nó dưới dạng một email bình thường. Nếu bạn không bấm gửi trong ứng dụng email, chúng tôi không nhận được gì cả.</p>
+    </div>
+
+    <h3>Google Analytics — chỉ khi bạn đồng ý</h3>
+    <p>Nếu bạn bấm <strong>Đồng ý</strong> ở dải thông báo, Google Analytics 4 sẽ lưu cookie <code>_ga</code> và ghi nhận: trang bạn xem, thời gian ở lại, loại thiết bị và trình duyệt, vị trí ở mức thành phố, và sự kiện bạn gửi biểu mẫu liên hệ.</p>
+    <p>Nếu bạn bấm <strong>Từ chối</strong> — hoặc chưa chọn gì — Google Analytics <strong>không lưu cookie và không ghi nhận gì</strong>. Chúng tôi dùng cơ chế Consent Mode của Google, mặc định là từ chối.</p>
+
+    <h3>Lưu trữ trong trình duyệt</h3>
+    <p>Trang lưu ba giá trị trong bộ nhớ trình duyệt của bạn: ngôn ngữ đã chọn (<code>aisys-lang</code>), giao diện sáng hay tối (<code>aisys-theme</code>), và lựa chọn cookie của bạn (<code>aisys-consent</code>). Ba giá trị này <strong>không bao giờ rời khỏi máy bạn</strong> và chúng tôi không đọc được chúng.</p>
+
+    <h3>Phông chữ</h3>
+    <p>Trang tải phông chữ từ Google Fonts. Việc này khiến địa chỉ IP của bạn được gửi tới máy chủ Google, kể cả khi bạn từ chối Analytics. Đây là hệ quả kỹ thuật của việc dùng phông chữ bên ngoài, và chúng tôi nêu ra để bạn biết.</p>
+
+    <h2>2. Vì sao chúng tôi cần</h2>
+    <ul>
+      <li><strong>Dữ liệu từ biểu mẫu:</strong> để trả lời yêu cầu của bạn. Không dùng vào việc gì khác, không gửi cho bên thứ ba.</li>
+      <li><strong>Analytics:</strong> để biết phần nào của trang thực sự hữu ích và phần nào nên bỏ. Cơ sở pháp lý là sự đồng ý của bạn, và bạn rút lại được bất cứ lúc nào.</li>
+    </ul>
+
+    <h2>3. Ai khác nhìn thấy</h2>
+    <p>Chỉ có Google, và chỉ với dữ liệu Analytics khi bạn đã đồng ý. Google có thể xử lý dữ liệu này ngoài lãnh thổ Việt Nam. Chúng tôi <strong>không bán, không trao đổi, không chia sẻ</strong> dữ liệu của bạn cho bất kỳ bên nào khác.</p>
+
+    <h2>4. Lưu trong bao lâu</h2>
+    <p>Email liên hệ được giữ trong hộp thư của chúng tôi cho tới khi bạn yêu cầu xoá. Dữ liệu Google Analytics theo thiết lập lưu trữ của tài khoản GA4 — mặc định của Google là 14 tháng.</p>
+
+    <h2>5. Quyền của bạn</h2>
+    <p>Theo Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15, bạn có quyền:</p>
+    <ul>
+      <li><strong>Được biết</strong> chúng tôi xử lý dữ liệu nào của bạn.</li>
+      <li><strong>Đồng ý hoặc từ chối</strong>, và <strong>rút lại sự đồng ý</strong> bất cứ lúc nào.</li>
+      <li><strong>Truy cập</strong> dữ liệu của bạn mà chúng tôi đang giữ.</li>
+      <li><strong>Chỉnh sửa</strong> dữ liệu sai hoặc chưa đầy đủ.</li>
+      <li><strong>Yêu cầu xoá</strong> dữ liệu của bạn.</li>
+      <li><strong>Hạn chế hoặc phản đối</strong> việc xử lý.</li>
+      <li><strong>Khiếu nại</strong> tới cơ quan nhà nước có thẩm quyền.</li>
+    </ul>
+    <p>Muốn rút lại sự đồng ý với Analytics, cách nhanh nhất là xoá dữ liệu website của aisys.vn trong trình duyệt — dải thông báo sẽ hiện lại để bạn chọn lại. Hoặc viết cho chúng tôi.</p>
+
+    <h2>6. Liên hệ</h2>
+    <p>Mọi yêu cầu liên quan tới dữ liệu cá nhân, gửi tới <a href="mailto:greenlabs80@gmail.com">greenlabs80@gmail.com</a>. Chúng tôi trả lời trong vòng 24 giờ làm việc.</p>
+
+    <h2>7. Thay đổi</h2>
+    <p>Nếu chính sách này thay đổi, chúng tôi cập nhật ngày ở đầu trang. Thay đổi nào ảnh hưởng tới sự đồng ý của bạn sẽ khiến dải thông báo hiện lại.</p>
+
+    <a class="back" href="/">← Về trang chủ</a>
+  </section>
+
+  <!-- ================= EN ================= -->
+  <section id="en" lang="en" hidden>
+    <div class="kicker">Privacy policy</div>
+    <h1>What we collect, and what you can do about it</h1>
+    <p class="updated">Updated: 25 September 2026</p>
+    <p>This page describes exactly what aisys.vn does with your data — no more, no less. If anything is unclear, write to us at the address at the bottom.</p>
+
+    <h2>1. What we collect</h2>
+
+    <h3>The contact form</h3>
+    <p>When you fill in the form we receive your <strong>name, company, email and the description of what you need</strong>.</p>
+    <div class="note">
+      <p>One technical detail worth stating: this form <strong>does not send anything to a server of ours</strong>. It opens the email client on your own machine with the message pre-filled. You see exactly what you are sending, and we only ever receive it as an ordinary email. If you do not press send in your email client, we receive nothing at all.</p>
+    </div>
+
+    <h3>Google Analytics — only if you agree</h3>
+    <p>If you press <strong>Accept</strong> on the banner, Google Analytics 4 stores a <code>_ga</code> cookie and records which pages you view, how long you stay, your device and browser type, your city-level location, and the event that you submitted the contact form.</p>
+    <p>If you press <strong>Decline</strong> — or make no choice at all — Google Analytics <strong>stores no cookie and records nothing</strong>. We use Google's Consent Mode, which starts in the denied state.</p>
+
+    <h3>Browser storage</h3>
+    <p>The site keeps three values in your browser: your chosen language (<code>aisys-lang</code>), light or dark theme (<code>aisys-theme</code>), and your cookie choice (<code>aisys-consent</code>). These <strong>never leave your device</strong> and we cannot read them.</p>
+
+    <h3>Fonts</h3>
+    <p>The site loads typefaces from Google Fonts, which means your IP address reaches Google's servers even if you decline analytics. That is a technical consequence of using a hosted font service, and we state it so you know.</p>
+
+    <h2>2. Why we need it</h2>
+    <ul>
+      <li><strong>Form data:</strong> to answer you. Nothing else, and never passed to a third party.</li>
+      <li><strong>Analytics:</strong> to learn which parts of the site actually help and which should go. The legal basis is your consent, and you can withdraw it at any time.</li>
+    </ul>
+
+    <h2>3. Who else sees it</h2>
+    <p>Only Google, and only the analytics data, and only once you have agreed. Google may process that data outside Vietnam. We <strong>do not sell, trade or share</strong> your data with anyone else.</p>
+
+    <h2>4. How long we keep it</h2>
+    <p>Contact emails stay in our mailbox until you ask us to delete them. Analytics data follows the retention setting on the GA4 account; Google's default is 14 months.</p>
+
+    <h2>5. Your rights</h2>
+    <p>Under Vietnam's Personal Data Protection Law No. 91/2025/QH15 you have the right to:</p>
+    <ul>
+      <li><strong>Know</strong> what data of yours we process.</li>
+      <li><strong>Consent or refuse</strong>, and <strong>withdraw consent</strong> at any time.</li>
+      <li><strong>Access</strong> the data we hold about you.</li>
+      <li><strong>Correct</strong> data that is wrong or incomplete.</li>
+      <li><strong>Request deletion</strong> of your data.</li>
+      <li><strong>Restrict or object to</strong> processing.</li>
+      <li><strong>Complain</strong> to the competent state authority.</li>
+    </ul>
+    <p>The quickest way to withdraw analytics consent is to clear this site's data in your browser — the banner reappears and you can choose again. Or simply write to us.</p>
+
+    <h2>6. Contact</h2>
+    <p>For anything concerning personal data, write to <a href="mailto:greenlabs80@gmail.com">greenlabs80@gmail.com</a>. We reply within 24 working hours.</p>
+
+    <h2>7. Changes</h2>
+    <p>If this policy changes we update the date at the top. Any change that affects your consent will bring the banner back.</p>
+
+    <a class="back" href="/">← Back to the site</a>
+  </section>
+
+  <!-- ================= JA ================= -->
+  <section id="ja" lang="ja" hidden>
+    <div class="kicker">プライバシーポリシー</div>
+    <h1>取得する情報と、お客様の権利</h1>
+    <p class="updated">更新日: 2026年9月25日</p>
+    <p>本ページは aisys.vn がお客様のデータに対して行うことを、過不足なく記載しています。ご不明な点は末尾の連絡先までお知らせください。</p>
+
+    <h2>1. 取得する情報</h2>
+
+    <h3>お問い合わせフォーム</h3>
+    <p>フォームにご入力いただくと、<strong>お名前、会社名、メールアドレス、ご相談内容</strong>を受け取ります。</p>
+    <div class="note">
+      <p>技術的な点を明記します。このフォームは<strong>当社のサーバーへデータを送信しません</strong>。お客様の端末のメールアプリを、本文が入力された状態で開くだけです。送信内容はお客様ご自身が確認でき、当社は通常のメールとして受け取ります。メールアプリで送信されなければ、当社には何も届きません。</p>
+    </div>
+
+    <h3>Google Analytics — 同意いただいた場合のみ</h3>
+    <p>バナーで<strong>同意する</strong>を選択された場合、Google Analytics 4 が <code>_ga</code> Cookie を保存し、閲覧ページ、滞在時間、端末とブラウザの種類、市区町村レベルの所在地、お問い合わせフォーム送信イベントを記録します。</p>
+    <p><strong>拒否する</strong>を選択された場合、または未選択の場合、Google Analytics は <strong>Cookie を保存せず、何も記録しません</strong>。Google の Consent Mode を使用し、既定値は拒否です。</p>
+
+    <h3>ブラウザ内の保存</h3>
+    <p>本サイトはブラウザ内に3つの値を保存します。選択言語（<code>aisys-lang</code>）、ライト／ダークの表示設定（<code>aisys-theme</code>）、Cookie の選択（<code>aisys-consent</code>）です。これらは<strong>お客様の端末から出ることはなく</strong>、当社が読み取ることもできません。</p>
+
+    <h3>フォント</h3>
+    <p>本サイトは Google Fonts から書体を読み込みます。そのため、Analytics を拒否された場合でも、お客様の IP アドレスは Google のサーバーに送られます。外部フォントサービスを利用する以上避けられない事象であり、事実として明記します。</p>
+
+    <h2>2. 利用目的</h2>
+    <ul>
+      <li><strong>フォームの情報：</strong>ご返信のためだけに使用します。他の用途や第三者提供は行いません。</li>
+      <li><strong>Analytics：</strong>サイトのどの部分が役立ち、どこを削るべきかを把握するため。法的根拠はお客様の同意であり、いつでも撤回できます。</li>
+    </ul>
+
+    <h2>3. 第三者への提供</h2>
+    <p>Google のみ、Analytics のデータのみ、かつご同意をいただいた場合のみです。Google はベトナム国外でデータを処理する場合があります。当社はお客様のデータを<strong>販売・交換・共有いたしません</strong>。</p>
+
+    <h2>4. 保存期間</h2>
+    <p>お問い合わせメールは、削除のご依頼があるまで当社のメールボックスに保管されます。Analytics のデータは GA4 アカウントの保持設定に従います（Google の既定は14か月）。</p>
+
+    <h2>5. お客様の権利</h2>
+    <p>ベトナム個人データ保護法（第91/2025/QH15号）に基づき、お客様には次の権利があります。</p>
+    <ul>
+      <li>当社が処理するデータを<strong>知る権利</strong>。</li>
+      <li><strong>同意・拒否</strong>し、いつでも<strong>同意を撤回する権利</strong>。</li>
+      <li>保有データへ<strong>アクセスする権利</strong>。</li>
+      <li>誤ったデータを<strong>訂正する権利</strong>。</li>
+      <li>データの<strong>削除を求める権利</strong>。</li>
+      <li>処理の<strong>制限・異議申立ての権利</strong>。</li>
+      <li>管轄当局へ<strong>苦情を申し立てる権利</strong>。</li>
+    </ul>
+    <p>Analytics の同意を撤回する最も簡単な方法は、ブラウザで本サイトのデータを削除することです。バナーが再表示され、選び直せます。ご連絡いただいても構いません。</p>
+
+    <h2>6. お問い合わせ</h2>
+    <p>個人データに関するご連絡は <a href="mailto:greenlabs80@gmail.com">greenlabs80@gmail.com</a> までお願いいたします。営業時間内24時間以内にご返信します。</p>
+
+    <h2>7. 変更</h2>
+    <p>本ポリシーを変更した場合、冒頭の更新日を改めます。同意に影響する変更があった場合は、バナーを再表示します。</p>
+
+    <a class="back" href="/">← サイトへ戻る</a>
+  </section>
+</div>
+
+<script>
+(function(){
+  var L=["vi","en","ja"], cur="vi";
+  try{ var v=localStorage.getItem("aisys-lang"); if(L.indexOf(v)>=0) cur=v; }catch(e){}
+  try{ var t=localStorage.getItem("aisys-theme");
+       if(t==="dark"||t==="light") document.documentElement.setAttribute("data-theme",t); }catch(e){}
+  function show(l){
+    cur=l;
+    L.forEach(function(x){ document.getElementById(x).hidden = (x!==l); });
+    document.documentElement.setAttribute("lang",l);
+    document.querySelectorAll(".langs button").forEach(function(b){
+      b.setAttribute("aria-pressed", String(b.dataset.l===l));
+    });
+    try{ localStorage.setItem("aisys-lang",l); }catch(e){}
+  }
+  document.querySelectorAll(".langs button").forEach(function(b){
+    b.addEventListener("click", function(){ show(b.dataset.l); });
+  });
+  show(cur);
+})();
+</script>
+</body>
+</html>
