@@ -322,6 +322,57 @@ Error generating stack: `+o.message+`
     [class~="w-[calc(100%-1.5rem)]"] { width: calc(100% - 1.5rem); }
     [class~="h-[calc(100%-1.5rem)]"] { height: calc(100% - 1.5rem); }
 
+    /* ---------------------------------------------------------------------
+       CONSENT BAR
+       Sits above everything (the mobile CTA bar is z-40, the nav z-50, the
+       mobile sheet z-60, the language menu z-70) because nothing should be
+       usable-looking before the choice is made.
+       The two buttons share one footprint on purpose: the law is specific
+       that refusing must be exactly as easy as accepting, so they are the
+       same height, width and weight, one click each, side by side.
+       --------------------------------------------------------------------- */
+    .consent-bar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 14px 24px;
+      padding: 16px 20px;
+      padding-bottom: max(16px, env(safe-area-inset-bottom));
+      background: #fff; border-top: 1px solid #e8e2db;
+      box-shadow: 0 -8px 28px rgba(18, 17, 16, .10);
+    }
+    .dark .consent-bar {
+      background: #1a1918; border-top-color: #2a2826;
+      box-shadow: 0 -8px 28px rgba(0, 0, 0, .5);
+    }
+
+    .consent-text {
+      margin: 0; font-size: 13px; line-height: 1.55;
+      color: #3f3c39; max-width: 76ch;
+    }
+    .dark .consent-text { color: #c8c3be; }
+    .consent-link { color: #121110; text-decoration: underline; text-underline-offset: 2px; }
+    .dark .consent-link { color: #f7f5f2; }
+
+    .consent-actions { display: flex; gap: 10px; flex: none; }
+    .consent-btn {
+      appearance: none; cursor: pointer;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      height: 40px; min-width: 120px; padding: 0 18px; border-radius: 999px;
+      transition: opacity .18s ease;
+    }
+    .consent-no  { background: transparent; border: 1px solid #d6d0c9; color: #121110; }
+    .dark .consent-no { border-color: #3a3734; color: #f7f5f2; }
+    .consent-yes { background: #ff3a1a; border: 1px solid #ff3a1a; color: #fff; }
+    .consent-btn:hover { opacity: .88; }
+    .consent-btn:focus-visible { outline: 2px solid #ff3a1a; outline-offset: 2px; }
+
+    @media (max-width: 640px) {
+      .consent-actions { width: 100%; }
+      .consent-btn { flex: 1; min-width: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { .consent-btn { transition: none; } }
+
     .lang-wrap { position: relative; }
 
     .lang-trigger {
