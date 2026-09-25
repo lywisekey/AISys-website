@@ -15,7 +15,18 @@
 // to. Before aisys.vn is verified, set CONTACT_FROM to onboarding@resend.dev -
 // that address works unverified but only delivers to the Resend account owner.
 
-const TO   = process.env.CONTACT_TO   || 'greenlabs80@gmail.com';
+const EMAIL = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+// CONTACT_TO takes one address or several separated by commas. Everyone listed
+// lands in the same To: header, so each of them sees the others and Reply All
+// keeps the whole group in the thread - which is the point for a shared inbox.
+// Capped so that a mistyped variable cannot quietly turn this into a relay.
+const TO = (process.env.CONTACT_TO || 'greenlabs80@gmail.com')
+  .split(',')
+  .map(function (a) { return a.trim(); })
+  .filter(function (a) { return EMAIL.test(a); })
+  .slice(0, 20);
+
 const FROM = process.env.CONTACT_FROM || 'AISys <no-reply@aisys.vn>';
 
 const LIMITS = { name: 120, company: 160, email: 200, line: 5000 };
@@ -55,7 +66,7 @@ module.exports = async (req, res) => {
   const email   = clean(body.email,   LIMITS.email);
   const line    = clean(body.line,    LIMITS.line);
 
-  if (!name || !company || !line || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+  if (!name || !company || !line || !EMAIL.test(email)) {
     return res.status(400).json({ ok: false, error: 'invalid_input' });
   }
 
@@ -64,6 +75,14 @@ module.exports = async (req, res) => {
 
   if (!process.env.RESEND_API_KEY) {
     console.error('contact: RESEND_API_KEY is not set');
+    return res.status(500).json({ ok: false, error: 'not_configured' });
+  }
+
+  // Every address in CONTACT_TO was rejected by the filter above, so there is
+  // nowhere to deliver. Fail loudly in the log rather than silently dropping
+  // a lead on the floor.
+  if (!TO.length) {
+    console.error('contact: CONTACT_TO has no valid address');
     return res.status(500).json({ ok: false, error: 'not_configured' });
   }
 
@@ -79,7 +98,7 @@ module.exports = async (req, res) => {
       },
       body: JSON.stringify({
         from: FROM,
-        to: [TO],
+        to: TO,
         // so hitting Reply in the inbox answers the person, not the robot
         reply_to: email,
         subject: `[${company}] ${name}`,
