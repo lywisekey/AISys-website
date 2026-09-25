@@ -107,11 +107,21 @@ module.exports = async (req, res) => {
     });
 
     if (!r.ok) {
-      // Surface Resend's own words in the log - an unverified sending domain
-      // reports itself here and nowhere else.
+      // Resend's own words go to the log; an unverified sending domain reports
+      // itself here and nowhere else.
       const detail = await r.text().catch(() => '');
       console.error('contact: resend rejected', r.status, detail.slice(0, 500));
-      return res.status(502).json({ ok: false, error: 'send_failed' });
+
+      // A category, never the raw message - that body can echo back parts of
+      // the request. Enough to tell a bad key from an unverified domain from
+      // a throttle without reaching for the dashboard.
+      const reason =
+        r.status === 401 ? 'provider_auth'        // key missing, wrong or revoked
+      : r.status === 403 ? 'sender_not_allowed'   // domain not verified for this key
+      : r.status === 422 ? 'provider_rejected'    // malformed address or payload
+      : r.status === 429 ? 'provider_throttled'
+      : 'send_failed';
+      return res.status(502).json({ ok: false, error: reason });
     }
 
     return res.status(200).json({ ok: true });
