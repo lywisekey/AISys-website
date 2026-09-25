@@ -1,4 +1,4 @@
-.vercel
-.DS_Store
-node_modules
 _*.html
+.DS_Store
+.vercel
+node_modules

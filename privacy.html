@@ -112,7 +112,7 @@
     <h3>Biểu mẫu liên hệ</h3>
     <p>Khi bạn điền biểu mẫu, chúng tôi nhận <strong>tên, tên công ty, email và phần mô tả nhu cầu</strong> của bạn.</p>
     <div class="note">
-      <p>Một chi tiết kỹ thuật đáng nói: biểu mẫu này <strong>không gửi dữ liệu tới máy chủ nào của chúng tôi</strong>. Nó mở ứng dụng email trên chính máy bạn với nội dung soạn sẵn. Nghĩa là bạn thấy được chính xác thứ mình gửi, và chúng tôi chỉ nhận nó dưới dạng một email bình thường. Nếu bạn không bấm gửi trong ứng dụng email, chúng tôi không nhận được gì cả.</p>
+      <p>Biểu mẫu gửi nội dung tới một endpoint trên hạ tầng của chúng tôi, ở đó nó được chuyển thành một email và chuyển tiếp về hộp thư của chúng tôi. <strong>Chúng tôi không lưu nó vào cơ sở dữ liệu nào</strong> — dữ liệu chỉ tồn tại dưới dạng email trong hộp thư, và bạn yêu cầu là chúng tôi xoá.</p>
     </div>
 
     <h3>Google Analytics — chỉ khi bạn đồng ý</h3>
@@ -132,7 +132,7 @@
     </ul>
 
     <h2>3. Ai khác nhìn thấy</h2>
-    <p>Chỉ có Google, và chỉ với dữ liệu Analytics khi bạn đã đồng ý. Google có thể xử lý dữ liệu này ngoài lãnh thổ Việt Nam. Chúng tôi <strong>không bán, không trao đổi, không chia sẻ</strong> dữ liệu của bạn cho bất kỳ bên nào khác.</p>
+    <p>Ba bên, mỗi bên chỉ trong đúng phạm vi cần thiết:</p><ul><li><strong>Vercel</strong> — nơi website chạy. Xử lý yêu cầu của bạn khi bạn gửi biểu mẫu.</li><li><strong>Resend</strong> — dịch vụ gửi email. Nhận nội dung biểu mẫu để chuyển thành email tới hộp thư của chúng tôi.</li><li><strong>Google</strong> — chỉ dữ liệu Analytics, và chỉ khi bạn đã đồng ý.</li></ul><p>Cả ba có thể xử lý dữ liệu ngoài lãnh thổ Việt Nam. Chúng tôi <strong>không bán, không trao đổi, không chia sẻ</strong> dữ liệu của bạn cho bất kỳ bên nào khác.</p>
 
     <h2>4. Lưu trong bao lâu</h2>
     <p>Email liên hệ được giữ trong hộp thư của chúng tôi cho tới khi bạn yêu cầu xoá. Dữ liệu Google Analytics theo thiết lập lưu trữ của tài khoản GA4 — mặc định của Google là 14 tháng.</p>
@@ -171,7 +171,7 @@
     <h3>The contact form</h3>
     <p>When you fill in the form we receive your <strong>name, company, email and the description of what you need</strong>.</p>
     <div class="note">
-      <p>One technical detail worth stating: this form <strong>does not send anything to a server of ours</strong>. It opens the email client on your own machine with the message pre-filled. You see exactly what you are sending, and we only ever receive it as an ordinary email. If you do not press send in your email client, we receive nothing at all.</p>
+      <p>The form posts to an endpoint on our own infrastructure, which turns it into an email and forwards it to our mailbox. <strong>We do not store it in any database</strong> — it exists only as an email in that mailbox, and we delete it when you ask.</p>
     </div>
 
     <h3>Google Analytics — only if you agree</h3>
@@ -191,7 +191,7 @@
     </ul>
 
     <h2>3. Who else sees it</h2>
-    <p>Only Google, and only the analytics data, and only once you have agreed. Google may process that data outside Vietnam. We <strong>do not sell, trade or share</strong> your data with anyone else.</p>
+    <p>Three parties, each only as far as it needs to go:</p><ul><li><strong>Vercel</strong> — where the site runs. Handles your request when you submit the form.</li><li><strong>Resend</strong> — the email service. Receives the form contents in order to deliver them to our mailbox.</li><li><strong>Google</strong> — analytics data only, and only once you have agreed.</li></ul><p>All three may process data outside Vietnam. We <strong>do not sell, trade or share</strong> your data with anyone else.</p>
 
     <h2>4. How long we keep it</h2>
     <p>Contact emails stay in our mailbox until you ask us to delete them. Analytics data follows the retention setting on the GA4 account; Google's default is 14 months.</p>
@@ -230,7 +230,7 @@
     <h3>お問い合わせフォーム</h3>
     <p>フォームにご入力いただくと、<strong>お名前、会社名、メールアドレス、ご相談内容</strong>を受け取ります。</p>
     <div class="note">
-      <p>技術的な点を明記します。このフォームは<strong>当社のサーバーへデータを送信しません</strong>。お客様の端末のメールアプリを、本文が入力された状態で開くだけです。送信内容はお客様ご自身が確認でき、当社は通常のメールとして受け取ります。メールアプリで送信されなければ、当社には何も届きません。</p>
+      <p>フォームの内容は当社インフラ上のエンドポイントへ送信され、そこでメールに変換されて当社のメールボックスへ転送されます。<strong>データベースには保存しません</strong>。データはメールボックス内のメールとしてのみ存在し、ご依頼があれば削除します。</p>
     </div>
 
     <h3>Google Analytics — 同意いただいた場合のみ</h3>
@@ -250,7 +250,7 @@
     </ul>
 
     <h2>3. 第三者への提供</h2>
-    <p>Google のみ、Analytics のデータのみ、かつご同意をいただいた場合のみです。Google はベトナム国外でデータを処理する場合があります。当社はお客様のデータを<strong>販売・交換・共有いたしません</strong>。</p>
+    <p>次の3社に対して、必要な範囲でのみ提供します。</p><ul><li><strong>Vercel</strong> — 本サイトの稼働環境。フォーム送信時のリクエストを処理します。</li><li><strong>Resend</strong> — メール配信サービス。フォームの内容を受け取り、当社のメールボックスへ配信します。</li><li><strong>Google</strong> — Analytics のデータのみ、かつご同意をいただいた場合のみ。</li></ul><p>いずれもベトナム国外でデータを処理する場合があります。当社はお客様のデータを<strong>販売・交換・共有いたしません</strong>。</p>
 
     <h2>4. 保存期間</h2>
     <p>お問い合わせメールは、削除のご依頼があるまで当社のメールボックスに保管されます。Analytics のデータは GA4 アカウントの保持設定に従います（Google の既定は14か月）。</p>
